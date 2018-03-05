@@ -1,0 +1,18 @@
+{
+  "name": "ward-calendar",
+  "version": "1.0.0",
+  "description": "parse calendar events for ward",
+  "main": "index.js",
+  "scripts": {
+    "start": "json=$(cat ~/Downloads/agenda-list.html | pup '#agendaList json{}' --color --indent 2 | jq '.[0].children | map(select(.class != \"agenda-text\"))') && node_modules/.bin/nodemon ./index.js \"$json\""
+  },
+  "author": "David C. Vezzani",
+  "license": "ISC",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "moment": "^2.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1"
+  }
+}
